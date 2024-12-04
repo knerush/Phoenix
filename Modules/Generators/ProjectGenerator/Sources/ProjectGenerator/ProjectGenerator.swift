@@ -23,5 +23,9 @@ public struct ProjectGenerator: ProjectGeneratorProtocol {
             let url = folderURL.appendingPathComponent(packageWithPath.path, isDirectory: true)
             try packageGenerator.generate(package: packageWithPath.package, at: url)
         }
+        //executing custom shell script if any present
+        if let scriptPath = document.projectConfiguration.customScriptPath {
+            try packageGenerator.runExternalScriptIfNeeded(at: folderURL.appendingPathComponent(scriptPath))
+        }
     }
 }

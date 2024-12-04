@@ -11,12 +11,15 @@ struct ConfigurationView: View {
     let narrowColumnWidth: CGFloat = 100
     let rowHeight: CGFloat = 30
     let onDismiss: () -> Void
+    let rootURL: URL?
     
     init(configuration: Binding<ProjectConfiguration>,
          relationViewData: RelationViewData,
+         rootURL: URL?,
          onDismiss: @escaping () -> Void) {
         self._configuration = configuration
         self.relationViewData = relationViewData
+        self.rootURL = rootURL
         self.onDismiss = onDismiss
     }
     
@@ -128,6 +131,9 @@ struct ConfigurationView: View {
                         viewData: relationViewData
                     )
                 }
+                CustomScriptView(viewModel:
+                                    CustomScriptViewModel(configuration: $configuration,
+                                                          rootURL: rootURL))
                 Button(action: onDismiss) {
                     Text("Close")
                 }.padding(.horizontal)

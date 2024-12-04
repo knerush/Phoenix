@@ -10,3 +10,13 @@ extension Container {
         ) as GenerateFeatureDataStoreProtocol
     }.scope(.singleton)
 }
+
+extension Container {
+    var featureDataStore: Factory<GenerateFeatureDataStoreProtocol> {
+        self {
+            GenerateFeatureDataStore(
+                dictionaryCache: UserDefaults.standard
+            ) as GenerateFeatureDataStoreProtocol
+        }.scope(.singleton)
+    }
+}

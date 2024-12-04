@@ -51,6 +51,8 @@
 		994957992BF368BB0055B81B /* PhoenixDocument+MutatingExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994957982BF368BB0055B81B /* PhoenixDocument+MutatingExtensionTests.swift */; };
 		9949579B2BF3901D0055B81B /* PhoenixDocument in Frameworks */ = {isa = PBXBuildFile; productRef = 9949579A2BF3901D0055B81B /* PhoenixDocument */; };
 		9949579D2BF390CB0055B81B /* SwiftPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 9949579C2BF390CB0055B81B /* SwiftPackage */; };
+		A4A75F692D10A1720001E03B /* CustomScriptViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AC7B082D03294F00229F40 /* CustomScriptViewModel.swift */; };
+		A4A75F6A2D10A1830001E03B /* CustomScriptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AC7B062D01CDB700229F40 /* CustomScriptView.swift */; };
 		B20F17412A067ACC004391B0 /* GenerateSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20F17402A067ACC004391B0 /* GenerateSheet.swift */; };
 		B20F9D502A0FC1C9005F99BB /* AlertSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20F9D4F2A0FC154005F99BB /* AlertSheet.swift */; };
 		B213A90D28C7CA13005AFC91 /* ProjectGenerator in Frameworks */ = {isa = PBXBuildFile; productRef = B213A90C28C7CA13005AFC91 /* ProjectGenerator */; };
@@ -219,6 +221,8 @@
 		994957952BF3285E0055B81B /* MutableCollection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MutableCollection+Extensions.swift"; sourceTree = "<group>"; };
 		994957982BF368BB0055B81B /* PhoenixDocument+MutatingExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhoenixDocument+MutatingExtensionTests.swift"; sourceTree = "<group>"; };
 		9FE96A2D3B3268D8FAD977D1 /* ProjectValidator */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ProjectValidator; sourceTree = "<group>"; };
+		A4AC7B062D01CDB700229F40 /* CustomScriptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScriptView.swift; sourceTree = "<group>"; };
+		A4AC7B082D03294F00229F40 /* CustomScriptViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScriptViewModel.swift; sourceTree = "<group>"; };
 		ABEE0E3F8FE6D1C0124E666E /* AppVersionProvider */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AppVersionProvider; sourceTree = "<group>"; };
 		B0575B2BA782D723A9A8ECFC /* GenerateFeatureDataStoreContract */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = GenerateFeatureDataStoreContract; sourceTree = "<group>"; };
 		B2071ECA29B66BBD003E509E /* ci_post_xcodebuild.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci_post_xcodebuild.sh; sourceTree = "<group>"; };
@@ -483,6 +487,7 @@
 		38C7D144280888E800E2675B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A4AC7B052D01CD2D00229F40 /* Settings */,
 				B20F9D4E2A0FC154005F99BB /* AlertSheet */,
 				388DA8A4281862420066086A /* Reusable */,
 				38E0B2F92815702E00B5992D /* ComponentDependenciesSheet.swift */,
@@ -590,6 +595,22 @@
 			path = DataStore;
 			sourceTree = "<group>";
 		};
+		A4AC7B052D01CD2D00229F40 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A4AC7B062D01CDB700229F40 /* CustomScriptView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		A4AC7B0A2D03296F00229F40 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A4AC7B082D03294F00229F40 /* CustomScriptViewModel.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		B20F9D4E2A0FC154005F99BB /* AlertSheet */ = {
 			isa = PBXGroup;
 			children = (
@@ -626,6 +647,7 @@
 		B2E1D48329425CBE00FF07DE /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A4AC7B0A2D03296F00229F40 /* Settings */,
 				38E2512A2837E163002FFA31 /* ViewModel.swift */,
 				B29BE1032943D37C00675860 /* ViewModel+Selection.swift */,
 				B2E1D48429425CCB00FF07DE /* ViewModel+ComponentsList.swift */,
@@ -971,6 +993,7 @@
 				B2EDFE572955E802005BB99C /* RemoteComponentView.swift in Sources */,
 				B2E1D4892942A90B00FF07DE /* PhoenixDocument+RelationViewData.swift in Sources */,
 				B2EDFE552955AED3005BB99C /* ExternalDependencyNameView.swift in Sources */,
+				A4A75F6A2D10A1830001E03B /* CustomScriptView.swift in Sources */,
 				38E0B2FD2815766E00B5992D /* PhoenixDocument+MutatingExtension.swift in Sources */,
 				B2F4B1B629B48B39008DBAB1 /* CompositionRoot+ProjectValidator.swift in Sources */,
 				38E0B2FF2815CC7D00B5992D /* RemoteDependencyView.swift in Sources */,
@@ -1015,6 +1038,7 @@
 				B2F4B1AC29B48A6B008DBAB1 /* CompositionRoot+DocumentCoder.swift in Sources */,
 				4B4058752A7CE75600388E0B /* NewMacroComponentSheet.swift in Sources */,
 				38C7D1492808B35300E2675B /* NewComponentSheet.swift in Sources */,
+				A4A75F692D10A1720001E03B /* CustomScriptViewModel.swift in Sources */,
 				B2F4B1B429B48B02008DBAB1 /* CompositionRoot+ProjectGenerator.swift in Sources */,
 				B2F4B1A829B489F3008DBAB1 /* CompositionRoot+PackageStringProvider.swift in Sources */,
 				38E251312837E96A002FFA31 /* InfoSheet.swift in Sources */,

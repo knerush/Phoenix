@@ -72,7 +72,14 @@ public struct PackageGenerator: PackageGeneratorProtocol {
         let path = try createFolderIfNecessary(folder: "Sources", at: url, withName: name)
         try createMacroSourceFile(name: name, atPath: path)
     }
+    
+    public func runExternalScriptIfNeeded(at url: URL) throws {
+        guard fileManager.fileExists(atPath: url.path) else { return }
 
+        let shell = Shell(verbose: true)
+        _ = try shell.executeScript(at: url.absoluteURL.absoluteString)
+    }
+    
     private func createSourcesFolderIfNecessary(at url: URL, name: String) throws {
         let path = try createFolderIfNecessary(folder: "Sources", at: url, withName: name)
         try createSourceFile(name: name, atPath: path)

@@ -12,7 +12,8 @@ public struct ProjectConfiguration: Codable, Hashable {
     public var swiftVersion: String
     public var platforms: Platforms
     public var defaultOrganizationIdentifier: String?
-    
+    public var customScriptPath: String?
+
     enum CodingKeys: String, CodingKey {
         case packageConfigurations
         case defaultDependencies
@@ -20,6 +21,7 @@ public struct ProjectConfiguration: Codable, Hashable {
         case swiftVersion
         case defaultOrganizationIdentifier
         case platforms
+        case customScriptPath
     }
     
     internal init(packageConfigurations: [PackageConfiguration],
@@ -27,12 +29,14 @@ public struct ProjectConfiguration: Codable, Hashable {
                   macrosFoldeName: String = "Macros",
                   swiftVersion: String,
                   defaultOrganizationIdentifier: String?,
+                  customScriptPath: String?,
                   platforms: Platforms) {
         self.packageConfigurations = packageConfigurations
         self.defaultDependencies = defaultDependencies
         self.macrosFolderName = macrosFoldeName
         self.swiftVersion = swiftVersion
         self.defaultOrganizationIdentifier = defaultOrganizationIdentifier
+        self.customScriptPath = customScriptPath
         self.platforms = platforms
     }
     
@@ -45,6 +49,7 @@ public struct ProjectConfiguration: Codable, Hashable {
         swiftVersion = (try? container.decode(String.self, forKey: .swiftVersion)) ?? "5.9"
         defaultOrganizationIdentifier = try? container.decodeIfPresent(String.self, forKey: .defaultOrganizationIdentifier)
         platforms = (try? container.decode(Platforms.self, forKey: .platforms)) ?? .empty
+        customScriptPath = try? container.decodeIfPresent(String.self, forKey: .customScriptPath)
     }
     
     public func encode(to encoder: Encoder) throws {
@@ -57,6 +62,7 @@ public struct ProjectConfiguration: Codable, Hashable {
         try container.encode(swiftVersion, forKey: .swiftVersion)
         try container.encodeIfPresent(defaultOrganizationIdentifier, forKey: .defaultOrganizationIdentifier)
         try container.encode(platforms, forKey: .platforms)
+        try container.encode(customScriptPath, forKey: .customScriptPath)
     }
 }
 
@@ -72,6 +78,7 @@ extension ProjectConfiguration {
         defaultDependencies: [:],
         swiftVersion: "5.9",
         defaultOrganizationIdentifier: nil,
+        customScriptPath: nil,
         platforms: .empty
     )
 }
