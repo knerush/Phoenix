@@ -131,8 +131,8 @@ struct ConfigurationView: View {
                         viewData: relationViewData
                     )
                 }
-                CustomScriptView(viewModel:
-                                    CustomScriptViewModel(configuration: $configuration,
+                CustomShellScriptView(viewModel:
+                                    CustomShellScriptViewModel(configuration: $configuration,
                                                           rootURL: rootURL))
                 Button(action: onDismiss) {
                     Text("Close")

@@ -4,7 +4,7 @@ import PhoenixDocument
 import UniformTypeIdentifiers
 import Factory
 
-class CustomScriptViewModel: ObservableObject {
+class CustomShellScriptViewModel: ObservableObject {
     
     @Injected(\.featureDataStore) private var dataStore: GenerateFeatureDataStoreProtocol
     

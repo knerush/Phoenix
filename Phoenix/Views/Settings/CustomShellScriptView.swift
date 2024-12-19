@@ -1,16 +1,16 @@
 import SwiftUI
 import UniformTypeIdentifiers
 
-struct CustomScriptView: View {
-    @ObservedObject private var viewModel: CustomScriptViewModel
+struct CustomShellScriptView: View {
+    @ObservedObject private var viewModel: CustomShellScriptViewModel
     
-    init(viewModel: CustomScriptViewModel) {
+    init(viewModel: CustomShellScriptViewModel) {
         self.viewModel = viewModel
     }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("Custom Script")
+            Text("Custom Shell Script")
                 .font(.headline)
 
                 Text(viewModel.selectedFilePath)
